@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>My projects</title>
+</head>
+<body>
+<h1>My projects</h1>
+
+<ul>
+    <li><a href="credentials.html">Setup</a></li>
+</ul>
+<div id="projects">
+    <p v-if="error" style="color: red">{{error}}</p>
+    <table v-if="projects.length">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Source language</th>
+            <th>Target languages</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="project in projects">
+            <td>{{ project.name }}</td>
+            <td>{{ project.status }}</td>
+            <td>{{ project.sourceLang }}</td>
+            <td>{{ project.targetLangs.join(', ') }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.19.2/dist/axios.min.js"></script>
+<script>
+    new Vue({
+        el: '#projects',
+        data() {
+            return {
+                projects: [],
+                error: ''
+            }
+        },
+        mounted() {
+            axios
+                .get('api/v1/projects')
+                .then(response => (this.projects = response.data))
+                .catch(error => (this.error = error));
+        }
+    });
+</script>
+</body>
+</html>

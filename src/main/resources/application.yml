@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: "jdbc:h2:mem:demo"
+    driverClassName: "org.h2.Driver"
+    username: "sa"
+    password: ""
+  resources:
+    chain:
+      cache: false
+  jpa:
+    hibernate:
+      ddl-auto: validate
+app:
+  memsource:
+    base-url: "https://cloud.memsource.com/web/api2"
+
