@@ -1,5 +1,4 @@
 package cz.karelstefan.memsourcedemo.controller;
-
 import cz.karelstefan.memsourcedemo.domain.memsource.Project;
 import cz.karelstefan.memsourcedemo.service.ProjectService;
 import lombok.RequiredArgsConstructor;
