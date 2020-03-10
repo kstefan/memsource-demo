@@ -4,9 +4,6 @@ spring:
     driverClassName: "org.h2.Driver"
     username: "sa"
     password: ""
-  resources:
-    chain:
-      cache: false
   jpa:
     hibernate:
       ddl-auto: validate
